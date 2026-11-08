@@ -7,28 +7,59 @@ interface GateIntroProps {
   onComplete: () => void;
 }
 
+const dateText = "10 DESEMBER 2026";
+
 export default function GateIntro({ onComplete }: GateIntroProps) {
   const [isExiting, setIsExiting] = useState(false);
+  const [typedDate, setTypedDate] = useState("");
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setIsExiting(true);
-    }, 3000);
+    let index = 0;
+    let typingTimer: ReturnType<typeof setInterval> | undefined;
 
-    return () => window.clearTimeout(timer);
+    const typingStart = setTimeout(() => {
+      typingTimer = setInterval(() => {
+        index++;
+        setTypedDate(dateText.slice(0, index));
+
+        if (index >= dateText.length && typingTimer) {
+          clearInterval(typingTimer);
+        }
+      }, 250);
+    }, 2200);
+
+    const timer = setTimeout(() => {
+      setIsExiting(true);
+    }, 7500);
+
+    return () => {
+      clearTimeout(typingStart);
+      clearTimeout(timer);
+
+      if (typingTimer) {
+        clearInterval(typingTimer);
+      }
+    };
   }, []);
 
   return (
-    <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#21150F] ${
-        isExiting ? "gate-exit" : ""
-      }`}
-      onAnimationEnd={(event) => {
-        if (
-          isExiting &&
-          event.target === event.currentTarget &&
-          event.animationName === "gateSlideUp"
-        ) {
+    <motion.div
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#080706]"
+      style={{ minHeight: "100dvh" }}
+      initial={{ y: 0 }}
+      animate={{
+        y: isExiting ? "-100%" : 0,
+      }}
+      transition={
+        isExiting
+          ? {
+              duration: 1.3,
+              ease: [0.76, 0, 0.24, 1],
+            }
+          : { duration: 0 }
+      }
+      onAnimationComplete={() => {
+        if (isExiting) {
           onComplete();
         }
       }}
@@ -41,10 +72,10 @@ export default function GateIntro({ onComplete }: GateIntroProps) {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-[#21150F]/65" />
+      <div className="absolute inset-0 bg-black/70" />
 
       {/* Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/75" />
 
       {/* Intro Text */}
       <motion.div
@@ -69,24 +100,18 @@ export default function GateIntro({ onComplete }: GateIntroProps) {
         >
           Gelvin
         </p>
+
+        {/* Typing Date */}
+        <div className="mt-7 min-h-7">
+          <p
+            style={{ fontFamily: "var(--font-cinzel-custom)" }}
+            className="whitespace-nowrap text-xs font-medium tracking-[0.2em] text-[#E9DDC9] sm:text-sm sm:tracking-[0.3em]"
+          >
+            {typedDate}
+            <span className="ml-1 inline-block h-3.5 w-px animate-pulse bg-[#E9DDC9] align-middle" />
+          </p>
+        </div>
       </motion.div>
-
-      <style jsx>{`
-        .gate-exit {
-          animation: gateSlideUp 1.3s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-          will-change: transform;
-        }
-
-        @keyframes gateSlideUp {
-          from {
-            transform: translate3d(0, 0, 0);
-          }
-
-          to {
-            transform: translate3d(0, -100%, 0);
-          }
-        }
-      `}</style>
-    </div>
+    </motion.div>
   );
 }
