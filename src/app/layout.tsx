@@ -1,16 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { poppins, cormorant, cinzel, greatVibes } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Tigang Sasih Gelvin",
@@ -22,13 +12,18 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html
-      lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="id" className="h-full antialiased">
+      <body
+        className={`${poppins.variable} ${cormorant.variable} ${cinzel.variable} ${greatVibes.variable} min-h-full flex flex-col font-sans`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
