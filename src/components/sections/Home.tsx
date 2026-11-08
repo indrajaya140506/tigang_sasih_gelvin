@@ -75,10 +75,10 @@ export default function Home({ onOpenInvitation }: HomeProps) {
           type="button"
           onClick={onOpenInvitation}
           whileTap={{ scale: 0.96 }}
-          className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-[#806044] px-4 py-1.5 text-[11px] font-semibold tracking-wide text-white shadow-md transition-colors hover:bg-[#9A7652] active:bg-[#A9845D] sm:px-5 sm:py-2 sm:text-xs"
+          className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-[#806044]/40 px-4 py-2 text-xs font-normal tracking-wide text-white shadow-md backdrop-blur-[2px] transition-colors hover:bg-[#94704F]/55 active:bg-[#A9845D]/65 sm:px-5 sm:py-2.5 sm:text-sm"
         >
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white">
-            <Mail size={12} strokeWidth={1.8} className="text-[#806044]" />
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white">
+            <Mail size={13} strokeWidth={1.8} className="text-[#806044]" />
           </span>
           BUKA UNDANGAN
         </motion.button>
