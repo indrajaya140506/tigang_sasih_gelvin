@@ -36,3 +36,31 @@ body {
   --font-cinzel: var(--font-cinzel-custom);
   --font-script: var(--font-great-vibes-custom);
 }
+
+/* Falling Flower Animation */
+@keyframes falling-flower {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translate3d(35px, 50vh, 0) rotate(180deg);
+  }
+
+  100% {
+    transform: translate3d(-25px, 110vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.falling-petal {
+  animation-name: falling-flower;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
