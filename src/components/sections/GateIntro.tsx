@@ -25,12 +25,12 @@ export default function GateIntro({ onComplete }: GateIntroProps) {
         if (index >= dateText.length && typingTimer) {
           clearInterval(typingTimer);
         }
-      }, 250);
+      }, 130);
     }, 2200);
 
     const timer = setTimeout(() => {
       setIsExiting(true);
-    }, 7500);
+    }, 4800);
 
     return () => {
       clearTimeout(typingStart);
@@ -53,7 +53,7 @@ export default function GateIntro({ onComplete }: GateIntroProps) {
       transition={
         isExiting
           ? {
-              duration: 1.3,
+              duration: 0.8,
               ease: [0.76, 0, 0.24, 1],
             }
           : { duration: 0 }

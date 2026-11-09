@@ -10,6 +10,7 @@ interface HomeProps {
 
 export default function Home({ onOpenInvitation }: HomeProps) {
   const [guestName, setGuestName] = useState("Nama Undangan");
+  const [isOpening, setIsOpening] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -17,13 +18,30 @@ export default function Home({ onOpenInvitation }: HomeProps) {
   }, []);
 
   return (
-    <section
+    <motion.section
       id="home"
-      className="relative flex h-dvh min-h-dvh w-full flex-col items-center overflow-hidden bg-[#21150F] text-white"
+      className="relative flex h-dvh min-h-dvh w-full flex-col items-center overflow-hidden bg-[#080706] text-white"
+      initial={{ y: 0 }}
+      animate={{
+        y: isOpening ? "-100%" : 0,
+      }}
+      transition={
+        isOpening
+          ? {
+              duration: 0.8,
+              ease: [0.76, 0, 0.24, 1],
+            }
+          : { duration: 0 }
+      }
+      onAnimationComplete={() => {
+        if (isOpening) {
+          onOpenInvitation();
+        }
+      }}
     >
       {/* Background */}
       <img
-        src="/images/putu.jpeg"
+        src="/images/putuz.jpeg"
         alt="Foto Gelvin"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
@@ -73,7 +91,8 @@ export default function Home({ onOpenInvitation }: HomeProps) {
         </p>
         <motion.button
           type="button"
-          onClick={onOpenInvitation}
+          onClick={() => setIsOpening(true)}
+          disabled={isOpening}
           whileTap={{ scale: 0.96 }}
           className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-[#806044]/40 px-4 py-2 text-xs font-normal tracking-wide text-white shadow-md backdrop-blur-[2px] transition-colors hover:bg-[#94704F]/55 active:bg-[#A9845D]/65 sm:px-5 sm:py-2.5 sm:text-sm"
         >
@@ -83,6 +102,6 @@ export default function Home({ onOpenInvitation }: HomeProps) {
           BUKA UNDANGAN
         </motion.button>
       </motion.div>
-    </section>
+    </motion.section>
   );
 }

@@ -29,15 +29,21 @@ export default function InvitationLayout({ children }: InvitationLayoutProps) {
   };
 
   return (
-    <main className="flex h-dvh min-h-0 w-full overflow-hidden bg-[#493126]">
+    <main className="flex h-dvh min-h-0 w-full overflow-hidden bg-[#080706]">
       <LeftPanel rightPanelRef={rightPanelRef} isOpened={isOpened} />
 
       <RightPanel rightPanelRef={rightPanelRef} isOpened={isOpened}>
-        {!isOpened ? (
-          <Home onOpenInvitation={handleOpenInvitation} />
-        ) : (
-          children
-        )}
+        <div className="relative min-h-full">
+          {/* Halaman Undangan */}
+          <div className="relative z-0">{children}</div>
+
+          {/* Home sebagai lapisan pembuka */}
+          {!isOpened && (
+            <div className="absolute inset-0 z-10">
+              <Home onOpenInvitation={handleOpenInvitation} />
+            </div>
+          )}
+        </div>
       </RightPanel>
 
       {!gateFinished && <GateIntro onComplete={handleGateComplete} />}
