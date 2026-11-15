@@ -135,6 +135,20 @@ export default function Hero() {
           Gelvin
         </p>
       </div>
+      {/* Curved Wave Divider */}
+      <div className="pointer-events-none absolute -bottom-px left-0 z-20 w-full overflow-hidden leading-none">
+        <svg
+          className="block h-[45px] w-full sm:h-[60px]"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 25 C480 90 960 90 1440 25 L1440 100 L0 100 Z"
+            fill="#FFFFFF"
+          />
+        </svg>
+      </div>
     </section>
   );
 }
