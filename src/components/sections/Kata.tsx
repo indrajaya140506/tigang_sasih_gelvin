@@ -70,37 +70,37 @@ export default function Kata() {
           <defs>
             <path
               id="tigangSasihCircle"
-              d="M 110,110 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"
+              d="M 110,32
+       A 78,78 0 1,1 110,188
+       A 78,78 0 1,1 110,32"
               fill="none"
             />
-          </defs>
 
-          {/* Tulisan Melingkar */}
-          <defs>
-            <path
-              id="tigangSasihCircle"
-              d="
-      M 110,32
-      A 78,78 0 1,1 110,188
-      A 78,78 0 1,1 110,32
-    "
-              fill="none"
-            />
+            <filter id="whiteGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
           </defs>
 
           <g className={isVisible ? "tigang-wheel" : ""}>
             <text
               fill="#FFFFFF"
+              filter="url(#whiteGlow)"
               fontSize="17"
               fontFamily="var(--font-cormorant), Georgia, serif"
-              fontWeight="600"
+              fontWeight="700"
               letterSpacing="1.8"
               textAnchor="middle"
               textLength="490"
               lengthAdjust="spacing"
             >
               <textPath href="#tigangSasihCircle" startOffset="50%">
-                TIGANG SASIH GELVIN • TIGANG SASIH GELVIN •
+                {" "}TIGANG SASIH GELVIN{" "}•{" "}TIGANG SASIH GELVIN{" "}•
+                {" "}
               </textPath>
             </text>
           </g>
