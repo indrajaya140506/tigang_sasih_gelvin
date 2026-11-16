@@ -41,7 +41,7 @@ export default function Home({ onOpenInvitation }: HomeProps) {
     >
       {/* Background */}
       <img
-        src="/images/putuz.jpeg"
+        src="/images/utu.jpeg"
         alt="Foto Gelvin"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />

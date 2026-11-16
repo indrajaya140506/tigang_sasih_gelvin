@@ -2,15 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const photos = ["/images/gelvin.jpg", "/images/putu.jpeg", "/images/tuz.jpg"];
-
-const petals = Array.from({ length: 18 }, (_, i) => ({
-  id: i,
-  left: `${(i * 37 + 7) % 100}%`,
-  delay: `${(i % 9) * 1.2}s`,
-  duration: `${8 + (i % 5) * 2}s`,
-  size: `${10 + (i % 4) * 4}px`,
-}));
+const photos = ["/images/gelvin.jpg", "/images/utu.jpeg", "/images/tuz.jpg"];
 
 export default function Hero() {
   const [currentPhoto, setCurrentPhoto] = useState(0);
@@ -43,72 +35,6 @@ export default function Hero() {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
-      {/* Falling Flower Petals */}
-
-      {/* Falling Pink Jepun Flowers */}
-      <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
-        {petals.map((petal) => (
-          <span
-            key={petal.id}
-            className="falling-petal absolute -top-12"
-            style={{
-              left: petal.left,
-              animationDelay: petal.delay,
-              animationDuration: petal.duration,
-            }}
-          >
-            <svg
-              width={petal.size}
-              height={petal.size}
-              viewBox="0 0 100 100"
-              fill="none"
-            >
-              <defs>
-                <radialGradient id={`jepun-${petal.id}`}>
-                  <stop offset="0%" stopColor="#FFF0E8" />
-                  <stop offset="65%" stopColor="#F6B6C8" />
-                  <stop offset="100%" stopColor="#E98BA9" />
-                </radialGradient>
-              </defs>
-
-              <g fill={`url(#jepun-${petal.id})`}>
-                <ellipse cx="50" cy="27" rx="12" ry="23" />
-                <ellipse
-                  cx="50"
-                  cy="27"
-                  rx="12"
-                  ry="23"
-                  transform="rotate(72 50 50)"
-                />
-                <ellipse
-                  cx="50"
-                  cy="27"
-                  rx="12"
-                  ry="23"
-                  transform="rotate(144 50 50)"
-                />
-                <ellipse
-                  cx="50"
-                  cy="27"
-                  rx="12"
-                  ry="23"
-                  transform="rotate(216 50 50)"
-                />
-                <ellipse
-                  cx="50"
-                  cy="27"
-                  rx="12"
-                  ry="23"
-                  transform="rotate(288 50 50)"
-                />
-              </g>
-
-              <circle cx="50" cy="50" r="7" fill="#E9B95D" />
-            </svg>
-          </span>
-        ))}
-      </div>
-
       {/* Title - Bottom Left */}
       <div className="relative z-20 mb-40 ml-8 text-left sm:mb-44 sm:ml-16">
         {/* Date */}
@@ -134,20 +60,6 @@ export default function Hero() {
         >
           Gelvin
         </p>
-      </div>
-      {/* Curved Wave Divider */}
-      <div className="pointer-events-none absolute -bottom-px left-0 z-20 w-full overflow-hidden leading-none">
-        <svg
-          className="block h-[45px] w-full sm:h-[60px]"
-          viewBox="0 0 1440 100"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 25 C480 90 960 90 1440 25 L1440 100 L0 100 Z"
-            fill="#FFFFFF"
-          />
-        </svg>
       </div>
     </section>
   );

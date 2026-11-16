@@ -6,6 +6,11 @@ export default function Kata() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  const meaningText =
+    "Semoga kami mendengar hal-hal yang baik, melihat hal-hal yang baik, memiliki anggota tubuh yang kuat, serta menjalani kehidupan panjang yang diberkati oleh Tuhan.";
+
+  const [typedMeaning, setTypedMeaning] = useState("");
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -24,11 +29,30 @@ export default function Kata() {
     return () => observer.disconnect();
   }, []);
 
+  // Typewriter Animation for Meaning
+  // Slow Typewriter Animation - Tidak Looping
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let index = 0;
+
+    const interval = window.setInterval(() => {
+      index++;
+
+      setTypedMeaning(meaningText.slice(0, index));
+
+      if (index >= meaningText.length) {
+        window.clearInterval(interval);
+      }
+    }, 100);
+
+    return () => window.clearInterval(interval);
+  }, [isVisible]);
   return (
     <section
       ref={sectionRef}
       id="doa"
-      className="relative -mt-px flex w-full flex-col items-center justify-center overflow-hidden bg-white px-6 pb-32 pt-16 text-center sm:pb-36 sm:pt-20"
+      className="relative -mt-px flex w-full flex-col items-center justify-center overflow-hidden bg-black/50 px-6 pb-32 pt-16 text-center sm:pb-36 sm:pt-20"
     >
       {/* Golden Botanical Flower Illustration */}
       <div
@@ -377,28 +401,28 @@ export default function Kata() {
       >
         <p
           style={{ fontFamily: "var(--font-poppins-custom)" }}
-          className="text-base font-bold italic leading-snug text-[#3F3F3F] sm:text-lg"
+          className="text-base font-bold italic leading-snug text-white sm:text-lg"
         >
           Bhadram karnebhih srnuyama devah,
         </p>
 
         <p
           style={{ fontFamily: "var(--font-poppins-custom)" }}
-          className="text-base font-bold italic leading-snug text-[#3F3F3F] sm:text-lg"
+          className="text-base font-bold italic leading-snug text-white sm:text-lg"
         >
           bhadram pasyemaksabhir yajatrah,
         </p>
 
         <p
           style={{ fontFamily: "var(--font-poppins-custom)" }}
-          className="text-base font-bold italic leading-snug text-[#3F3F3F] sm:text-lg"
+          className="text-base font-bold italic leading-snug text-whitesm:text-lg"
         >
           sthirair angais tustuvamsas tanubhir,
         </p>
 
         <p
           style={{ fontFamily: "var(--font-poppins-custom)" }}
-          className="text-base font-bold italic leading-snug text-[#3F3F3F] sm:text-lg"
+          className="text-base font-bold italic leading-snug text-white sm:text-lg"
         >
           vyasema devahitam yadayuh.
         </p>
@@ -407,13 +431,14 @@ export default function Kata() {
       {/* Meaning */}
       <p
         style={{ fontFamily: "var(--font-poppins-custom)" }}
-        className={`mx-auto mt-9 max-w-2xl text-base font-normal leading-[1.65] text-[#555555] transition-all duration-1000 delay-500 sm:text-lg ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+        className={`mx-auto mt-9 h-[165px] max-w-2xl whitespace-normal text-base font-normal leading-[1.65] text-white transition-opacity duration-1000 delay-500 sm:h-[100px] sm:text-lg ${
+          isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
-        Semoga kami mendengar hal-hal yang baik, melihat hal-hal yang baik,
-        memiliki anggota tubuh yang kuat, serta menjalani kehidupan panjang yang
-        diberkati oleh Tuhan.
+        {typedMeaning}
+        {typedMeaning.length < meaningText.length && (
+          <span className="ml-0.5 inline-block animate-pulse">|</span>
+        )}
       </p>
 
       {/* Om Symbol and Veda Reference */}
@@ -503,21 +528,6 @@ export default function Kata() {
             Rg Veda I.89.8
           </p>
         </div>
-      </div>
-
-      {/* Bottom Curved Wave */}
-      <div className="pointer-events-none absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-        <svg
-          className="block h-[55px] w-full sm:h-[85px]"
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0,35 C360,125 1080,125 1440,35 L1440,120 L0,120 Z"
-            fill="#F8F3EC"
-          />
-        </svg>
       </div>
     </section>
   );

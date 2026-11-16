@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Balinese&display=swap');
+
 @import "tailwindcss";
 
 :root {
@@ -63,4 +65,19 @@ body {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   will-change: transform;
+}
+
+.balinese-script {
+  font-family: "Noto Serif Balinese", serif !important;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .balinese-script {
+    font-size: 36px;
+  }
 }
