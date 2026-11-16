@@ -54,342 +54,100 @@ export default function Kata() {
       id="doa"
       className="relative -mt-px flex w-full flex-col items-center justify-center overflow-hidden bg-black/50 px-6 pb-32 pt-16 text-center sm:pb-36 sm:pt-20"
     >
-      {/* Golden Botanical Flower Illustration */}
+      {/* Circular Tigang Sasih Gelvin with Om Center */}
       <div
         className={`mb-9 transition-all duration-[1600ms] ease-out ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
         }`}
       >
         <svg
-          width="132"
-          height="158"
-          viewBox="0 0 150 180"
-          fill="none"
+          viewBox="0 0 220 220"
+          className="h-auto w-[175px] sm:w-[195px] md:w-[210px]"
           xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Tigang Sasih Gelvin dengan simbol Om"
         >
           <defs>
-            <linearGradient id="jasmineGold" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#F8EBCB" />
-              <stop offset="45%" stopColor="#E7D2A4" />
-              <stop offset="100%" stopColor="#B49A65" />
-            </linearGradient>
-
-            <radialGradient id="jasmineCenter">
-              <stop offset="0%" stopColor="#E8C982" />
-              <stop offset="100%" stopColor="#A78343" />
-            </radialGradient>
-
-            <style>
-              {`
-                .flower-stem {
-                  stroke-dasharray: 200;
-                  stroke-dashoffset: ${isVisible ? 0 : 200};
-                  transition: stroke-dashoffset 3s ease-out;
-                }
-
-                .flower-bloom {
-                  transform-box: fill-box;
-                  transform-origin: center;
-                  transform: scale(${isVisible ? 1 : 0});
-                  opacity: ${isVisible ? 1 : 0};
-                  transition:
-                    transform 1.8s cubic-bezier(0.2, 0.8, 0.3, 1),
-                    opacity 1.2s ease;
-                }
-
-                .flower-leaf {
-                  transform-box: fill-box;
-                  transform-origin: center;
-                  transform: scale(${isVisible ? 1 : 0});
-                  opacity: ${isVisible ? 1 : 0};
-                  transition:
-                    transform 1.5s ease-out,
-                    opacity 1.2s ease;
-                }
-
-                .flower-sway {
-                  transform-box: view-box;
-                  transform-origin: 50% 94%;
-                  animation: flowerSway 4.5s ease-in-out infinite;
-                  animation-play-state: ${isVisible ? "running" : "paused"};
-                  will-change: transform;
-                }
-
-                @keyframes flowerSway {
-                  0%, 100% {
-                    transform: rotate(0deg);
-                  }
-                  25% {
-                    transform: rotate(4deg);
-                  }
-                  50% {
-                    transform: rotate(-4deg);
-                  }
-                  75% {
-                    transform: rotate(3deg);
-                  }
-                }
-              `}
-            </style>
+            <path
+              id="tigangSasihCircle"
+              d="M 110,110 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"
+              fill="none"
+            />
           </defs>
 
-          {/* Flower Movement Group */}
-          <g transform="translate(0 -10) translate(75 90) scale(0.88) translate(-75 -90)">
-            <g className="flower-sway">
-              {/* Main Stems */}
-              <g
-                stroke="#B49A65"
-                strokeWidth="1.1"
-                strokeLinecap="round"
-                fill="none"
-              >
-                <path className="flower-stem" d="M73 169 C70 125 76 82 65 28" />
-                <path
-                  className="flower-stem"
-                  d="M74 169 C83 125 93 87 104 48"
-                />
-                <path
-                  className="flower-stem"
-                  d="M72 169 C61 130 45 100 32 73"
-                />
-                <path
-                  className="flower-stem"
-                  d="M74 169 C77 133 81 108 91 83"
-                />
-                <path
-                  className="flower-stem"
-                  d="M73 169 C64 135 57 119 48 100"
-                />
-              </g>
+          {/* Tulisan Melingkar */}
+          <defs>
+            <path
+              id="tigangSasihCircle"
+              d="
+      M 110,32
+      A 78,78 0 1,1 110,188
+      A 78,78 0 1,1 110,32
+    "
+              fill="none"
+            />
+          </defs>
 
-              {/* Leaves */}
-              <g
-                fill="none"
-                stroke="#B49A65"
-                strokeWidth="0.85"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <g className="flower-leaf">
-                  <path d="M68 111 C42 99 32 79 37 69 C54 78 69 92 68 111Z" />
-                  <path d="M68 111 L39 74" />
-                  <path d="M56 96 L47 96 M49 86 L42 84" />
-                </g>
-
-                <g className="flower-leaf">
-                  <path d="M77 131 C101 114 115 112 121 99 C105 99 85 110 77 131Z" />
-                  <path d="M77 131 L116 103" />
-                  <path d="M91 120 L91 112 M103 112 L103 106" />
-                </g>
-
-                <g className="flower-leaf">
-                  <path d="M65 139 C43 126 34 111 30 97 C47 104 63 119 65 139Z" />
-                  <path d="M65 139 L33 102" />
-                </g>
-
-                <g className="flower-leaf">
-                  <path d="M82 99 C99 82 104 67 100 57 C86 66 79 82 82 99Z" />
-                  <path d="M82 99 L98 62" />
-                </g>
-
-                <g className="flower-leaf">
-                  <path d="M70 76 C50 63 45 49 48 39 C62 48 71 61 70 76Z" />
-                  <path d="M70 76 L50 43" />
-                </g>
-
-                <g className="flower-leaf">
-                  <path d="M76 88 C92 72 91 57 87 48 C76 59 72 75 76 88Z" />
-                  <path d="M76 88 L86 52" />
-                </g>
-              </g>
-
-              {/* Flowers - Golden Jasmine Bloom Animation */}
-
-              {/* Flower 1 */}
-              <g className="flower-bloom" style={{ transitionDelay: "0.4s" }}>
-                <g transform="translate(64 31)">
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(72)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(144)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(216)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(288)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <circle r="2.5" fill="url(#jasmineCenter)" />
-                </g>
-              </g>
-
-              {/* Flower 2 */}
-              <g className="flower-bloom" style={{ transitionDelay: "0.9s" }}>
-                <g transform="translate(104 49) scale(0.9)">
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(72)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(144)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(216)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(288)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <circle r="2.5" fill="url(#jasmineCenter)" />
-                </g>
-              </g>
-
-              {/* Flower 3 */}
-              <g className="flower-bloom" style={{ transitionDelay: "1.3s" }}>
-                <g transform="translate(37 71) scale(0.85)">
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(72)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(144)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(216)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(288)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <circle r="2.5" fill="url(#jasmineCenter)" />
-                </g>
-              </g>
-
-              {/* Flower 4 */}
-              <g className="flower-bloom" style={{ transitionDelay: "1.6s" }}>
-                <g transform="translate(88 83) scale(0.75)">
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(72)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(144)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(216)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <ellipse
-                    cx="0"
-                    cy="-6.5"
-                    rx="4.2"
-                    ry="7"
-                    transform="rotate(288)"
-                    fill="url(#jasmineGold)"
-                  />
-                  <circle r="2.5" fill="url(#jasmineCenter)" />
-                </g>
-              </g>
-            </g>
+          <g className={isVisible ? "tigang-wheel" : ""}>
+            <text
+              fill="#FFFFFF"
+              fontSize="17"
+              fontFamily="var(--font-cormorant), Georgia, serif"
+              fontWeight="600"
+              letterSpacing="1.8"
+              textAnchor="middle"
+              textLength="490"
+              lengthAdjust="spacing"
+            >
+              <textPath href="#tigangSasihCircle" startOffset="50%">
+                TIGANG SASIH GELVIN • TIGANG SASIH GELVIN •
+              </textPath>
+            </text>
           </g>
+
+          {/* Simbol Om Tepat di Tengah */}
+          <text
+            x="110"
+            y="110"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill="#FFFFFF"
+            fontSize="49"
+            fontFamily="serif"
+            fontWeight="400"
+            textRendering="geometricPrecision"
+            className={`transition-opacity duration-[1800ms] delay-500 ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            ॐ
+          </text>
+
+          <style>
+            {`
+        .tigang-wheel {
+          transform-box: view-box;
+          transform-origin: 110px 110px;
+          animation: tigangWheelRotate 24s linear infinite;
+          will-change: transform;
+        }
+
+        @keyframes tigangWheelRotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .tigang-wheel {
+            animation: none;
+          }
+        }
+      `}
+          </style>
         </svg>
       </div>
 
@@ -415,7 +173,7 @@ export default function Kata() {
 
         <p
           style={{ fontFamily: "var(--font-poppins-custom)" }}
-          className="text-base font-bold italic leading-snug text-whitesm:text-lg"
+          className="text-base font-bold italic leading-snug text-white sm:text-lg"
         >
           sthirair angais tustuvamsas tanubhir,
         </p>
