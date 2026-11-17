@@ -3,6 +3,7 @@ import Background from "@/components/Background";
 import Hero from "@/components/sections/Hero";
 import Kata from "@/components/sections/Kata";
 import Pembuka from "@/components/sections/Pembuka";
+import Gelvin from "@/components/sections/Gelvin";
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
           <Hero />
           <Kata />
           <Pembuka />
+          <Gelvin />
         </div>
       </div>
     </InvitationLayout>
