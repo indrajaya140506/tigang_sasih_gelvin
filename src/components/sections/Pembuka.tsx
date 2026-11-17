@@ -29,9 +29,23 @@ export default function Pembuka() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-black/50 px-5 py-16 text-center sm:py-20"
+      className="relative flex min-h-dvh w-full items-center justify-center overflow-hidden bg-black px-5 py-16 text-center sm:py-20"
     >
-      <div className="mx-auto flex max-w-4xl flex-col items-center">
+      {/* Background Foto Gelvin */}
+      <Image
+        src="/images/utu.jpeg"
+        alt="Foto pasangan Gelvin"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+
+      {/* Dark Transparent Overlay */}
+      <div className="absolute inset-0 bg-black/60" />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center">
         {/* Aksara Bali */}
         <div
           className={`mb-3 transition-all duration-[1500ms] ease-out ${
@@ -63,7 +77,7 @@ export default function Pembuka() {
         {/* Kata Pengantar */}
         <p
           style={{ fontFamily: "var(--font-poppins-custom)" }}
-          className={`mx-auto max-w-3xl text-sm font-normal leading-[1.65] text-white transition-all duration-[1200ms] delay-500 sm:text-base ${
+          className={`mx-auto max-w-3xl text-sm font-normal leading-[1.65] tracking-[0.12em] text-white transition-all duration-[1200ms] delay-500 sm:text-base ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
           }`}
         >

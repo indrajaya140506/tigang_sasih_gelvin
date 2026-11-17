@@ -9,8 +9,6 @@ export default function Kata() {
   const meaningText =
     "Semoga kami mendengar hal-hal yang baik, melihat hal-hal yang baik, memiliki anggota tubuh yang kuat, serta menjalani kehidupan panjang yang diberkati oleh Tuhan.";
 
-  const [typedMeaning, setTypedMeaning] = useState("");
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -31,28 +29,12 @@ export default function Kata() {
 
   // Typewriter Animation for Meaning
   // Slow Typewriter Animation - Tidak Looping
-  useEffect(() => {
-    if (!isVisible) return;
 
-    let index = 0;
-
-    const interval = window.setInterval(() => {
-      index++;
-
-      setTypedMeaning(meaningText.slice(0, index));
-
-      if (index >= meaningText.length) {
-        window.clearInterval(interval);
-      }
-    }, 100);
-
-    return () => window.clearInterval(interval);
-  }, [isVisible]);
   return (
     <section
       ref={sectionRef}
       id="doa"
-      className="relative -mt-px flex w-full flex-col items-center justify-center overflow-hidden bg-black/50 px-6 pb-32 pt-16 text-center sm:pb-36 sm:pt-20"
+      className="relative -mt-px flex w-full flex-col items-center justify-center overflow-hidden bg-white px-6 pb-32 pt-16 text-center sm:pb-36 sm:pt-20"
     >
       {/* Circular Tigang Sasih Gelvin with Om Center */}
       <div
@@ -65,122 +47,58 @@ export default function Kata() {
           className="h-auto w-[175px] sm:w-[195px] md:w-[210px]"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
-          aria-label="Tigang Sasih Gelvin dengan simbol Om"
+          aria-label="Simbol Om"
         >
-          <defs>
-            <path
-              id="tigangSasihCircle"
-              d="M 110,32
-       A 78,78 0 1,1 110,188
-       A 78,78 0 1,1 110,32"
-              fill="none"
-            />
-
-            <filter id="whiteGlow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="2" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          <g className={isVisible ? "tigang-wheel" : ""}>
-            <text
-              fill="#FFFFFF"
-              filter="url(#whiteGlow)"
-              fontSize="17"
-              fontFamily="var(--font-cormorant), Georgia, serif"
-              fontWeight="700"
-              letterSpacing="1.8"
-              textAnchor="middle"
-              textLength="490"
-              lengthAdjust="spacing"
-            >
-              <textPath href="#tigangSasihCircle" startOffset="50%">
-                {" "}TIGANG SASIH GELVIN{" "}•{" "}TIGANG SASIH GELVIN{" "}•
-                {" "}
-              </textPath>
-            </text>
-          </g>
-
-          {/* Simbol Om Tepat di Tengah */}
           <text
             x="110"
             y="110"
             textAnchor="middle"
             dominantBaseline="middle"
-            fill="#FFFFFF"
-            fontSize="49"
+            fill="#B49A65"
+            fontSize="75"
             fontFamily="serif"
             fontWeight="400"
             textRendering="geometricPrecision"
-            className={`transition-opacity duration-[1800ms] delay-500 ${
-              isVisible ? "opacity-100" : "opacity-0"
+            className={`transition-all duration-[1800ms] delay-500 ${
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-3 opacity-0"
             }`}
           >
             ॐ
           </text>
-
-          <style>
-            {`
-        .tigang-wheel {
-          transform-box: view-box;
-          transform-origin: 110px 110px;
-          animation: tigangWheelRotate 24s linear infinite;
-          will-change: transform;
-        }
-
-        @keyframes tigangWheelRotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .tigang-wheel {
-            animation: none;
-          }
-        }
-      `}
-          </style>
         </svg>
       </div>
 
-      {/* Vedic Mantra */}
       <div
-        className={`mx-auto max-w-3xl space-y-0.5 transition-all duration-1000 delay-300 ${
+        className={`mx-auto -mt-12 max-w-3xl space-y-0.5 transition-all duration-1000 delay-300 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         }`}
       >
         <p
           style={{ fontFamily: "var(--font-poppins-custom)" }}
-          className="text-base font-bold italic leading-snug text-white sm:text-lg"
+          className="text-base font-bold italic leading-snug text-black sm:text-lg"
         >
           Bhadram karnebhih srnuyama devah,
         </p>
 
         <p
           style={{ fontFamily: "var(--font-poppins-custom)" }}
-          className="text-base font-bold italic leading-snug text-white sm:text-lg"
+          className="text-base font-bold italic leading-snug text-black sm:text-lg"
         >
           bhadram pasyemaksabhir yajatrah,
         </p>
 
         <p
           style={{ fontFamily: "var(--font-poppins-custom)" }}
-          className="text-base font-bold italic leading-snug text-white sm:text-lg"
+          className="text-base font-bold italic leading-snug text-black sm:text-lg"
         >
           sthirair angais tustuvamsas tanubhir,
         </p>
 
         <p
           style={{ fontFamily: "var(--font-poppins-custom)" }}
-          className="text-base font-bold italic leading-snug text-white sm:text-lg"
+          className="text-base font-bold italic leading-snug text-black sm:text-lg"
         >
           vyasema devahitam yadayuh.
         </p>
@@ -189,14 +107,11 @@ export default function Kata() {
       {/* Meaning */}
       <p
         style={{ fontFamily: "var(--font-poppins-custom)" }}
-        className={`mx-auto mt-9 h-[165px] max-w-2xl whitespace-normal text-base font-normal leading-[1.65] text-white transition-opacity duration-1000 delay-500 sm:h-[100px] sm:text-lg ${
-          isVisible ? "opacity-100" : "opacity-0"
+        className={`mx-auto mt-9 max-w-2xl whitespace-normal text-base font-normal leading-[1.65] text-black transition-all duration-1000 delay-500 sm:text-lg ${
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         }`}
       >
-        {typedMeaning}
-        {typedMeaning.length < meaningText.length && (
-          <span className="ml-0.5 inline-block animate-pulse">|</span>
-        )}
+        {meaningText}
       </p>
 
       {/* Om Symbol and Veda Reference */}
@@ -205,7 +120,7 @@ export default function Kata() {
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
-        <p className="text-3xl text-[#B49A65]">ॐ</p>
+        <div className="mx-auto h-px w-45 bg-[#B49A65]" />
 
         <div className="mt-3 flex items-center gap-2 text-[#A48662]">
           {/* 3D Dark Brown Closed Book Icon */}
@@ -286,6 +201,20 @@ export default function Kata() {
             Rg Veda I.89.8
           </p>
         </div>
+      </div>
+      {/* Curved Bottom Transition */}
+      <div className="absolute bottom-0 left-0 z-20 w-full overflow-hidden leading-[0]">
+        <svg
+          viewBox="0 0 1440 120"
+          className="block h-[65px] w-full sm:h-[85px] md:h-[100px]"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,120 C360,75 1080,75 1440,120 L1440,120 L0,120 Z"
+            fill="#241812"
+          />
+        </svg>
       </div>
     </section>
   );

@@ -61,6 +61,20 @@ export default function Hero() {
           Gelvin
         </p>
       </div>
+      {/* Curved Bottom Transition */}
+      <div className="absolute bottom-0 left-0 z-20 w-full overflow-hidden leading-[0]">
+        <svg
+          viewBox="0 0 1440 120"
+          className="block h-[65px] w-full sm:h-[85px] md:h-[100px]"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,65 C360,95 1080,95 1440,65 L1440,120 L0,120 Z"
+            fill="#FFFFFF"
+          />
+        </svg>
+      </div>
     </section>
   );
 }
