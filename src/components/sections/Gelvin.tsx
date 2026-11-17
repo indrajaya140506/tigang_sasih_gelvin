@@ -40,11 +40,17 @@ export default function Gelvin() {
         fill
         priority={false}
         sizes="100vw"
-        className="object-cover object-center"
+        className={`object-cover object-center transition-all duration-[2000ms] ease-out ${
+          isVisible ? "scale-100 opacity-100" : "scale-110 opacity-0"
+        }`}
       />
 
       {/* Overlay Gelap */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/75" />
+      <div
+        className={`absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/75 transition-opacity duration-[1800ms] ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
+      />
 
       {/* Konten Rata Kanan */}
       <div
