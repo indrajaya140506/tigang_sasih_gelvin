@@ -83,7 +83,7 @@ export default function Gelvin() {
             className="text-xs font-light leading-relaxed tracking-[0.15em] text-white/85 sm:text-sm"
             style={{ fontFamily: "var(--font-poppins-custom)" }}
           >
-            Kadek Arya Agus Rudita &
+            Bripda Kadek Arya Agus Rudita &
           </p>
 
           <p

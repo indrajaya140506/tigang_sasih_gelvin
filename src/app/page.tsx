@@ -3,6 +3,8 @@ import Hero from "@/components/sections/Hero";
 import Kata from "@/components/sections/Kata";
 import Pembuka from "@/components/sections/Pembuka";
 import Gelvin from "@/components/sections/Gelvin";
+import DetaulAcara from "@/components/sections/DetailAcara";
+import DetailAcara from "@/components/sections/DetailAcara";
 
 export default function Page() {
   return (
@@ -13,6 +15,7 @@ export default function Page() {
           <Kata />
           <Pembuka />
           <Gelvin />
+          <DetailAcara />
         </div>
       </div>
     </InvitationLayout>
