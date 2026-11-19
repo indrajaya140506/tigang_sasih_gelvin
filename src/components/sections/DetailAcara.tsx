@@ -94,7 +94,7 @@ export default function DetailAcara() {
       <div className="relative z-10 mx-auto flex w-full max-w-md flex-col items-center rounded-[28px] border border-white/20 bg-black/15 px-6 py-8 text-center text-white backdrop-blur-[2px]">
         {/* Deskripsi Undangan */}
         <p
-          className={`${revealClass(0)} max-w-sm text-sm font-light leading-7 tracking-wide text-white sm:text-base`}
+          className={`${revealClass(0)} max-w-sm text-sm font-light leading-7 tracking-[0.08em] text-white drop-shadow-[0_1px_3px_rgba(255,255,255,0.25)] sm:text-base`}
           style={{
             fontFamily: "var(--font-poppins-custom)",
             transitionDelay: isVisible ? "0ms" : "0ms",
