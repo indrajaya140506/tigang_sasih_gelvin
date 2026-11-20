@@ -186,7 +186,7 @@ export default function DetailAcara() {
                 transitionDelay: isVisible ? `${1400 + index * 200}ms` : "0ms",
               }}
             >
-              <div className="flex aspect-square w-full max-w-[80px] items-center justify-center rounded-full border-2 border-white/90">
+              <div className="flex aspect-square w-full max-w-[80px] items-center justify-center rounded-full border-2 border-white/90 bg-[#493126]">
                 <span
                   className="text-lg font-light tabular-nums sm:text-xl"
                   style={{ fontFamily: "var(--font-poppins-custom)" }}
@@ -213,7 +213,7 @@ export default function DetailAcara() {
         >
           <path
             d="M0,65 C360,95 1080,95 1440,65 L1440,120 L0,120 Z"
-            fill="#FFFFFF"
+            fill="#241812"
           />
         </svg>
       </div>

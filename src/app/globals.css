@@ -81,3 +81,59 @@ body {
     font-size: 36px;
   }
 }
+
+@import "leaflet/dist/leaflet.css";
+
+
+
+/* Marker */
+.espresso-map .leaflet-marker-icon {
+  filter: none;
+}
+
+/* Popup */
+.espresso-map .leaflet-popup-content-wrapper {
+  background: #241812;
+  color: #e8d8bd;
+  border: 1px solid #b49a65;
+}
+
+.espresso-map .leaflet-popup-tip {
+  background: #241812;
+}
+.maplibregl-ctrl-attrib {
+  font-size: 9px !important;
+  background: rgba(245, 235, 221, 0.85) !important;
+  color: #493126 !important;
+  border-radius: 4px !important;
+  padding: 3px 6px !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: #493126 !important;
+}
+
+/* Map controls */
+.maplibregl-ctrl-group {
+  border: 1px solid #B49A65 !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: none !important;
+}
+
+.maplibregl-ctrl-group button {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* Map attribution */
+.maplibregl-ctrl-attrib {
+  font-size: 8px !important;
+  background: rgba(245, 235, 221, 0.9) !important;
+  color: #493126 !important;
+  border-radius: 4px !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: #493126 !important;
+}

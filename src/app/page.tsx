@@ -5,6 +5,7 @@ import Pembuka from "@/components/sections/Pembuka";
 import Gelvin from "@/components/sections/Gelvin";
 import DetaulAcara from "@/components/sections/DetailAcara";
 import DetailAcara from "@/components/sections/DetailAcara";
+import Maps from "@/components/sections/Maps";
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
           <Pembuka />
           <Gelvin />
           <DetailAcara />
+          <Maps />
         </div>
       </div>
     </InvitationLayout>
