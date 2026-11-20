@@ -40,7 +40,7 @@ export default function Maps() {
     <section
       ref={sectionRef}
       id="lokasi-upacara"
-      className="relative flex w-full flex-col items-center overflow-hidden bg-[#241812] px-5 py-20 sm:py-28"
+      className="relative flex w-full flex-col items-center overflow-hidden bg-white px-5 py-20 sm:py-28"
     >
       {/* Heading */}
       <div
@@ -49,13 +49,13 @@ export default function Maps() {
       >
         <p
           style={{ fontFamily: "var(--font-great-vibes-custom)" }}
-          className="mt-0 text-4xl font-normal leading-tight text-[#F5EBDD] sm:text-6xl"
+          className="mt-0 text-4xl font-normal leading-tight text-black sm:text-6xl"
         >
           Lokasi Resepsi
         </p>
 
         <p
-          className="mt-4 text-xs font-light leading-6 text-[#D6C7B3]"
+          className="mt-4 text-xs font-light leading-6 text-black"
           style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
         >
           Br.Pendem, Ds.Muncan, Selat, Karangasem, Bali
@@ -81,7 +81,7 @@ export default function Maps() {
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group mx-auto flex w-fit items-center justify-center gap-2.5 rounded-full border border-[#B49A65]/60 bg-[#F5EBDD] px-5 py-3 text-[#241812] transition-all duration-300 hover:bg-[#B49A65] hover:text-white"
+          className="group mx-auto flex w-fit items-center justify-center gap-2.5 rounded-full border border-[#B49A65]/60 bg-[#493126] px-5 py-3 text-[#F5EBDD] transition-all duration-300 hover:bg-[#B49A65] hover:text-white"
         >
           <svg
             viewBox="0 0 24 24"
@@ -98,7 +98,7 @@ export default function Maps() {
             className="whitespace-nowrap text-[10px] tracking-[0.15em] sm:text-[11px]"
             style={{ fontFamily: "var(--font-poppins-custom)" }}
           >
-            BUKA GOOGLE MAPS
+            BUKA MAPS
           </span>
 
           <svg
