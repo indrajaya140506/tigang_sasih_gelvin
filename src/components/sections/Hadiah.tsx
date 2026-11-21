@@ -17,7 +17,21 @@ export default function Hadiah() {
   };
 
   return (
-    <section id="hadiah" className="w-full bg-white px-5 py-20 sm:py-24">
+    <section
+      id="hadiah"
+      className="relative w-full bg-white px-5 py-20 sm:py-24"
+    >
+      {/* Curved Top - Soft Brown */}
+      <div className="absolute top-0 left-0 z-10 w-full overflow-hidden leading-[0]">
+        <svg
+          viewBox="0 0 1440 100"
+          className="block h-[45px] w-full sm:h-[55px] md:h-[65px]"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0,0 H1440 V15 Q720,65 0,15 Z" fill="#241812" />
+        </svg>
+      </div>
       <div className="mx-auto flex max-w-md flex-col items-center text-center">
         {/* Heading */}
         <p

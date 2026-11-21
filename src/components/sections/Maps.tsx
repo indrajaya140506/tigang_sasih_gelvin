@@ -117,7 +117,7 @@ export default function Maps() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M0,120 C360,65 1080,65 1440,120 L1440,120 L0,120 Z"
+            d="M0,120 C360,85 1080,85 1440,120 L1440,120 L0,120 Z"
             fill="#241812"
           />
         </svg>

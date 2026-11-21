@@ -8,6 +8,7 @@ import DetailAcara from "@/components/sections/DetailAcara";
 import Maps from "@/components/sections/Maps";
 import Gallery from "@/components/sections/Gallery";
 import Hadiah from "@/components/sections/Hadiah";
+import Ucapan from "@/components/sections/Ucapan";
 
 export default function Page() {
   return (
@@ -22,6 +23,7 @@ export default function Page() {
           <Maps />
           <Gallery />
           <Hadiah />
+          <Ucapan />
         </div>
       </div>
     </InvitationLayout>
