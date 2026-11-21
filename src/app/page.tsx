@@ -6,6 +6,7 @@ import Gelvin from "@/components/sections/Gelvin";
 import DetaulAcara from "@/components/sections/DetailAcara";
 import DetailAcara from "@/components/sections/DetailAcara";
 import Maps from "@/components/sections/Maps";
+import Gallery from "@/components/sections/Gallery";
 
 export default function Page() {
   return (
@@ -18,6 +19,7 @@ export default function Page() {
           <Gelvin />
           <DetailAcara />
           <Maps />
+          <Gallery />
         </div>
       </div>
     </InvitationLayout>
