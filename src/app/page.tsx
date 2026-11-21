@@ -7,6 +7,7 @@ import DetaulAcara from "@/components/sections/DetailAcara";
 import DetailAcara from "@/components/sections/DetailAcara";
 import Maps from "@/components/sections/Maps";
 import Gallery from "@/components/sections/Gallery";
+import Hadiah from "@/components/sections/Hadiah";
 
 export default function Page() {
   return (
@@ -20,6 +21,7 @@ export default function Page() {
           <DetailAcara />
           <Maps />
           <Gallery />
+          <Hadiah />
         </div>
       </div>
     </InvitationLayout>
