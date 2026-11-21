@@ -30,11 +30,7 @@ export default function Maps() {
       isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
     }`;
 
-  const address = "Br. Dinas Pendem, Desa Muncan, Selat, Karangasem, Bali";
-
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-
-  const embedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+  const mapsUrl = "https://maps.app.goo.gl/1AKgVddgPuEeytyt6?g_st=iwb";
 
   return (
     <section

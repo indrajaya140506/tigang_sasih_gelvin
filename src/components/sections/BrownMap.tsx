@@ -1,9 +1,10 @@
 "use client";
 
 export default function BrownMap() {
-  const address = "Br. Dinas Pendem, Desa Muncan, Selat, Karangasem, Bali";
+  const latitude = -8.4130421;
+  const longitude = 115.4506183;
 
-  const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&z=16&output=embed`;
+  const mapUrl = `https://maps.google.com/maps?q=${latitude},${longitude}&z=18&t=k&output=embed`;
 
   return (
     <div
