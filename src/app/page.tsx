@@ -9,6 +9,8 @@ import Maps from "@/components/sections/Maps";
 import Gallery from "@/components/sections/Gallery";
 import Hadiah from "@/components/sections/Hadiah";
 import Ucapan from "@/components/sections/Ucapan";
+import Footer from "@/components/sections/Footer";
+import Penutup from "@/components/sections/Penutup";
 
 export default function Page() {
   return (
@@ -24,6 +26,8 @@ export default function Page() {
           <Gallery />
           <Hadiah />
           <Ucapan />
+          <Footer />
+          <Penutup />
         </div>
       </div>
     </InvitationLayout>
