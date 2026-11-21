@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Gallery() {
   const [activeImage, setActiveImage] = useState<number | null>(null);
@@ -71,12 +72,39 @@ export default function Gallery() {
           </p>
         </div>
 
-        {/* Photo Grid */}
-        <div className="mx-auto grid w-full max-w-[600px] grid-cols-2 gap-1.5 sm:gap-2.5">
+        {/* Photo Grid + Scroll Animation */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.08,
+              },
+            },
+          }}
+          className="mx-auto grid w-full max-w-[600px] grid-cols-2 gap-1.5 sm:gap-2.5"
+        >
           {images.map((src, index) => (
-            <button
+            <motion.button
               key={`${src}-${index}`}
               onClick={() => setActiveImage(index)}
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  y: 25,
+                },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.6,
+                    ease: "easeOut",
+                  },
+                },
+              }}
               className="group relative aspect-[3/4] w-full overflow-hidden rounded-[7px] border border-white/70 bg-[#493126] focus:outline-none"
               aria-label={`Buka foto ${index + 1}`}
             >
@@ -89,9 +117,9 @@ export default function Gallery() {
 
               {/* Hover Black Overlay */}
               <span className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/30 group-active:bg-black/40" />
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Fullscreen Photo Viewer */}
